@@ -92,7 +92,6 @@ class QueryTableModel extends AbstractTableModel {
 
     public QueryTableModel() {
         cache = new Vector();
-        new gsl.sql.driv.Driver();
     }
 
     public String getColumnName(int i) {
@@ -159,7 +158,8 @@ class QueryTableModel extends AbstractTableModel {
 
     public void initDB(String url) {
         try {
-            db = DriverManager.getConnection(url);
+            db = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/postgres", "gfish",
+                    "gfish");
             statement = db.createStatement();
         } catch (Exception e) {
             System.out.println("Could not initialize the database.");
