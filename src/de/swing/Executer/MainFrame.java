@@ -133,6 +133,7 @@ public class MainFrame extends JFrame {
 
             @Override
             protected void process(List<Integer> chunks) {
+                //Here we receive the values that we publish().
                 int mostRecentValue = chunks.get(chunks.size()-1);
                 countLabel1.setText(Integer.toString(mostRecentValue));
             }
